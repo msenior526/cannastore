@@ -6,6 +6,8 @@ Rails.application.routes.draw do
     resources :reviews, only: [:index]
   end
 
+  resources :categories, only: [:index]
+
   resources :users, except: [:new, :create, :index]
 
   get '/signup', to: 'users#new'
