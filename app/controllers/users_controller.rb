@@ -15,7 +15,7 @@ class UsersController < ApplicationController
     end
 
     def show
-    
+        @user = User.find_by(session[:user_id])
     end
 
     def edit
