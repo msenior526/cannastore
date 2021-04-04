@@ -6,6 +6,8 @@ Rails.application.routes.draw do
     resources :reviews, only: [:index]
   end
 
+  resources :reviews
+
   resources :categories, only: [:index, :show]
 
   resources :users, except: [:new, :create, :index]
