@@ -10,12 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_04_164702) do
+ActiveRecord::Schema.define(version: 2021_04_04_170251) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "favorite_strains", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "strain_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["strain_id"], name: "index_favorite_strains_on_strain_id"
+    t.index ["user_id"], name: "index_favorite_strains_on_user_id"
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -27,15 +36,6 @@ ActiveRecord::Schema.define(version: 2021_04_04_164702) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["strain_id"], name: "index_reviews_on_strain_id"
     t.index ["user_id"], name: "index_reviews_on_user_id"
-  end
-
-  create_table "saved_strains", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.integer "strain_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["strain_id"], name: "index_saved_strains_on_strain_id"
-    t.index ["user_id"], name: "index_saved_strains_on_user_id"
   end
 
   create_table "strains", force: :cascade do |t|
@@ -58,9 +58,9 @@ ActiveRecord::Schema.define(version: 2021_04_04_164702) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "favorite_strains", "strains"
+  add_foreign_key "favorite_strains", "users"
   add_foreign_key "reviews", "strains"
   add_foreign_key "reviews", "users"
-  add_foreign_key "saved_strains", "strains"
-  add_foreign_key "saved_strains", "users"
   add_foreign_key "strains", "categories"
 end
