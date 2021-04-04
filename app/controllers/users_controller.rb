@@ -5,6 +5,13 @@ class UsersController < ApplicationController
     end
 
     def create
+        user = User.new
+        byebug
+        if user && user.authenticate(params)
+            redirect_to user
+        else
+            render :new
+        end
     end
 
     def show
