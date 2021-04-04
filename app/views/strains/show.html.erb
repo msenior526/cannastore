@@ -1,2 +1,10 @@
   </br>
-<%= @strain.name %>
+<%= @strain.name %></br>
+<%= @strain.category.name %></br>
+<%= @strain.thc_content %>
+REVIEWS
+<% @strain.reviews.each do |review| %></br>
+    <%= review.user.username %></br>
+    <%= review.context %></br>
+    <%= review.rating %>/10
+<% end %>
