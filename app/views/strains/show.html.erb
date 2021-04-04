@@ -1,0 +1,10 @@
+  
+   <h1> <%= @strain.name %> </h1>
+    <%= @strain.category.name %>
+    <% @strain.reviews.each do |review| %>
+        </br>
+        <%= review.user.username %>
+        </br>
+        <%= review.context %></br>
+        <%= review.rating %>
+    <% end %>

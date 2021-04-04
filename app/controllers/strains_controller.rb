@@ -4,6 +4,6 @@ class StrainsController < ApplicationController
     end
 
     def show
-        @strain = Strain.find_by_id(params[:id])
+        @strain = Strain.find_by(id: params[:id])
     end
 end
