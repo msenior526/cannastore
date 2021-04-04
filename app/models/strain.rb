@@ -3,5 +3,6 @@ class Strain < ApplicationRecord
   has_many :reviews
   has_many :users, through: :reviews
   has_many :saved_strains
-  
+  has_many :saved_by, through: :saved_strains, source: user
+
 end
