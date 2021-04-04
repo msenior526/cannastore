@@ -1,5 +1,12 @@
-<h1>WELCOME USER</h1>
-<%= @user.username %>
+<h1>WELCOME <%= @user.username %></h1>
+
 <%= @user.birthday %>
+<%= @user.email %></br>
+
+<h4>Your reviews</h4> </br>
+<%= @user.reviews.each do |review| %>
+    <%= review.context %></br>
+    <%= review.rating %>/10
+<% end %>
 
 <%= button_to "Logout", logout_path %>
