@@ -3,10 +3,10 @@ Rails.application.routes.draw do
   
   
   resources :strains do 
-    resources :reviews, only: [:index]
+    resources :reviews, only: [:index, :new]
   end
 
-  resources :reviews
+  resources :reviews, except: [:index]
 
   resources :categories, only: [:index, :show]
 
@@ -14,6 +14,7 @@ Rails.application.routes.draw do
 
   get '/signup', to: 'users#new'
   post '/signup', to: 'users#create'
+  
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   post '/logout', to: 'sessions#destroy'
