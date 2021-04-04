@@ -1,10 +1,17 @@
 class ReviewsController < ApplicationController
     def new
         redirect_if_not_logged_in
-        @review = Review.new
+        if params[:strain_id] && !Strain.exists?(params[:strain_id])
+            redirect_to strains_path, alert: "Strain not found."
+          else
+            @review = Review.new(strain_id: params[:strain_id])
+          end
     end
 
     def create
+        @review = Review.new(review_params)
+        @review.save
+        redirect_to review_path(@review)
     end
 
     def index
