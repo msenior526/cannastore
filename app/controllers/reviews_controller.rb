@@ -7,6 +7,14 @@ class ReviewsController < ApplicationController
     def create
     end
 
+    def index
+        if params[:strain_id]
+            @reviews = Strain.find(params[:strain_id]).reviews
+        else
+            @reviews = Review.all
+        end
+    end
+
     private
 
     def review_params

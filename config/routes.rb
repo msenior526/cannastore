@@ -3,10 +3,8 @@ Rails.application.routes.draw do
   
   
   resources :strains do 
-    resources :reviews, only: [:index, :new]
+    resources :reviews
   end
-
-  resources :reviews, except: [:index]
 
   resources :categories, only: [:index, :show]
 
