@@ -1,14 +1,16 @@
 class SessionsController < ApplicationController
     def new
-        user = User.find_by(username: params[:username])
-        if user && user.authenticate(params[:password])
+       @user = User.new 
+    end
+
+    def create
+        user = User.find_by(email: params[:user][:email])
+        if user && user.authenticate(params[:user][:password])
+            session[:user_id] = user.id
             redirect_to user
         else 
             render :new
         end
-    end
-
-    def create
     end
 
     def destroy
