@@ -3,10 +3,15 @@
 <%= @user.standard_date %>
 <%= @user.email %></br>
 
-<h4>Your reviews</h4> </br>
-<%= @user.reviews.each do |review| %>
+<h3>Your reviews</h3> </br>
+<% @user.reviews.each do |review| %>
     <%= review.context %></br>
-    <%= review.rating %>/10
+    <%= review.rating %>/10</br>
+<% end %>
+
+<h3>Strains You Reviewed</h3>
+<% @user.strains.each do |strain| %>
+    <%= strain.name %>
 <% end %>
 
 <%= button_to "Logout", logout_path %>
