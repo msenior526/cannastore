@@ -1,5 +1,7 @@
-<%= form_for(@review) do |f| %>
+<%= form_with(model: @review, url: strain_reviews_path) do |f| %>
     <%= f.hidden_field :strain_id %>
+    <%= f.hidden_field :user_id %>
+    
     <br>
     <%= f.label :context %>
     <%= f.text_area :context %>

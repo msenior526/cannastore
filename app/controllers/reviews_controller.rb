@@ -4,14 +4,18 @@ class ReviewsController < ApplicationController
         if params[:strain_id] && !Strain.exists?(params[:strain_id])
             redirect_to strains_path, alert: "Strain not found."
           else
-            @review = Review.new(strain_id: params[:strain_id])
+            @review = Review.new(strain_id: params[:strain_id], user_id: session[:user_id])
           end
     end
 
     def create
         @review = Review.new(review_params)
-        @review.save
-        redirect_to review_path(@review)
+        if @review.save
+            redirect_to strain_reviews_path
+        else
+            byebug
+            render :new
+        end
     end
 
     def index
