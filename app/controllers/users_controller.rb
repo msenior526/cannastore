@@ -2,11 +2,8 @@ class UsersController < ApplicationController
     before_action :redirect_if_not_logged_in, only: [:show, :edit]
 
     def new
-        if logged_in?
-            redirect_to current_user
-        else 
-            @user = User.new
-        end
+       redirect_if_logged_in
+        @user = User.new
     end
 
     def create
