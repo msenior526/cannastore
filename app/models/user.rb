@@ -11,4 +11,15 @@ class User < ApplicationRecord
     def standard_date
         self.birthday.strftime("%b %d, %Y")
     end
+
+    def of_age?
+        this_year = DateTime.now.strftime("%Y").to_i
+        birth_year = birthday.strftime("%Y").to_i
+        age = this_year - birth_year
+        if age < 21
+            false
+        else
+            true
+        end
+    end
 end
