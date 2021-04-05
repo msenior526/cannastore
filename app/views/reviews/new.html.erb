@@ -1,15 +1,3 @@
 <h1> WRITE A REVIEW </h1>
-<%= form_for @review do |f| %>
-    <%= f.hidden_field :user_id, :value => @user.id %>
-
-    <%= f.collection_select :strain_id, Strain.all, :id, :name %></br>
-
-    <%= f.label :context %>
-    <%= f.text_area :context %>
-    </br>
-
-    <%= f.label :rating %>
-    <%= f.number_field :rating %>
-
-    <%= f.submit %>
-<% end %>
+<%= render partial: 'form' %>
+  

@@ -1,0 +1,12 @@
+<%= form_for(@review) do |f| %>
+    <%= f.hidden_field :strain_id %>
+    <br>
+    <%= f.label :context %>
+    <%= f.text_area :context %>
+    </br>
+
+    <%= f.label :rating %>
+    <%= f.number_field :rating %>
+  
+    <%= f.submit %>
+  <% end %>
