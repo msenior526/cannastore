@@ -1,8 +1,8 @@
-  </br>
-<%= @strain.name %></br>
+<h1><%= @strain.name %></h1></br>
+
 <%= @strain.category.name %></br>
 <%= @strain.thc_content  %>percent</br>
-REVIEWS
+<%= link_to "REVIEWS", strain_reviews_path(@strain) %>
 <% @strain.reviews.each do |review| %></br>
     <%= review.user.username %></br>
     <%= review.context %></br>
