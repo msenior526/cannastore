@@ -5,6 +5,7 @@ class User < ApplicationRecord
     # has_many :favorites, through: :favorite_strains, source: strain
     has_secure_password
 
+    validate :of_age?
     validates :username, :email, presence: true, uniqueness: true
     validates :password, :birthday, presence: true
 
@@ -17,7 +18,8 @@ class User < ApplicationRecord
         birth_year = birthday.strftime("%Y").to_i
         age = this_year - birth_year
         if age < 21
-            false
+            false 
+            errors.add(:birthday, "have to be at least 21 years old")
         else
             true
         end
