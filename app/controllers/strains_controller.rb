@@ -5,6 +5,12 @@ class StrainsController < ApplicationController
     end
 
     def create
+        strain = Strain.new(strain_params)
+        if strain.save
+            redirect_to strain_path(strain)
+        else
+            render :new
+        end
     end
 
     def index
