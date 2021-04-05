@@ -1,4 +1,11 @@
 class StrainsController < ApplicationController
+
+    def new
+    end
+
+    def create
+    end
+
     def index
         @strains = Strain.all
     end
