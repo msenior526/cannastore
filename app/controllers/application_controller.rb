@@ -12,4 +12,10 @@ class ApplicationController < ActionController::Base
           redirect_to login_path
         end
       end
+
+      def redirect_if_logged_in
+        if logged_in?
+          redirect_to user_path(current_user)
+        end
+      end
 end
