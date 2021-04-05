@@ -7,4 +7,8 @@ class User < ApplicationRecord
 
     validates :username, :email, presence: true, uniqueness: true
     validates :password, :birthday, presence: true
+
+    def standard_date
+        self.birthday.strftime("%b %d, %Y")
+    end
 end
