@@ -1,0 +1,15 @@
+<h1> EDIT PROFILE </h1>
+<%= form_for :user do |f| %>
+    <%= f.label :username %>
+    <%= f.text_field :username %>
+        </br>
+        </br>
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+        </br>
+    <%= f.label :password_confirmation %>
+    <%= f.password_field :password_confirmation %>
+
+
+    <%= f.submit %>
+<% end %>
