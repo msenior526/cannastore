@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_04_170251) do
+ActiveRecord::Schema.define(version: 2021_04_05_015005) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
@@ -53,9 +53,10 @@ ActiveRecord::Schema.define(version: 2021_04_04_170251) do
     t.string "email"
     t.string "password_digest"
     t.date "birthday"
-    t.integer "uid"
+    t.string "uid"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "provider"
   end
 
   add_foreign_key "favorite_strains", "strains"
