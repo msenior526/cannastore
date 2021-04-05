@@ -6,4 +6,8 @@ class Strain < ApplicationRecord
   # has_many :favorited_by, through: :favorite_strains, source: :user
 
   validates :name, presence: true, uniqueness: true
+
+  def self.by_thc_content
+    self.order(thc_content: :desc)
+  end
 end
