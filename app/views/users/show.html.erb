@@ -14,5 +14,12 @@
     <%= strain.name %>
 <% end %>
 
+<h3>Your Favorites</h3>
+<% @user.favorites.each do |favorite| %>
+    <%= favorite.name %></br>
+<% end %>
+
+
 <%= button_to "Logout", logout_path %>
 <%= button_to "Delete Account", user_path(@user), method: :delete %> 
+<%= link_to "Edit Account", edit_user_path(@user)%> 
