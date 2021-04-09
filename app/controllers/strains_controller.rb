@@ -14,7 +14,11 @@ class StrainsController < ApplicationController
     end
 
     def index
-        @strains = Strain.all
+        if params[:search]
+            @strains = Strain.search_by_name(params[:search])
+        else
+            @strains = Strain.all
+        end
     end
 
     def show
