@@ -4,13 +4,10 @@
 <%= @user.email %></br>
 
 <h3>Your reviews</h3> </br>
-<% @user.reviews.each do |review| %>
-    <%= review.context %></br>
-    <%= review.rating %>/10</br>
-<% end %>
+<%= render partial: 'reviews/review', :collection => @reviews %>
 
 <h3>Strains You Reviewed</h3>
-<% @user.strains.each do |strain| %>
+<% @strains.each do |strain| %>
     <%= strain.name %>
 <% end %>
 
