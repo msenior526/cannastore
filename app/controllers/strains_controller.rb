@@ -15,6 +15,7 @@ class StrainsController < ApplicationController
 
     def index
         if params[:search]
+            byebug
             @strains = Strain.search_by_name(params[:search])
         else
             @strains = Strain.all
