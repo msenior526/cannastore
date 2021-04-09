@@ -1,6 +1,2 @@
 <h1><%= @strain.name %> Reviews</h1>
-<% @reviews.each do |review| %>
-    <%= review.user.username %></br>
-    <%= review.created_at %><br>
-    <%= review.context %><br>
-<% end %>
+<%= render @reviews %>
