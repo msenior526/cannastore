@@ -15,6 +15,20 @@ class SessionsController < ApplicationController
     end
 
     def omniauth
+        byebug
+        @user = User.find_or_create_by(provider: auth['provider'], uid: auth['uid']) do |u|
+            u.email = auth[:info][:email]
+            u.username = auth[:info][:name].downcase.gsub(" ", "_")
+            u.birthday = DateTime.now.strftime("%Y-%m-%d")
+            u.password = SecureRandom.hex(20)
+        end
+        if @user.valid?
+            session[:user_id] = @user.id
+            redirect_to @user
+        else
+            render :new
+        end
+
     end
 
     def destroy

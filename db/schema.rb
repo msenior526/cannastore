@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_05_015005) do
+ActiveRecord::Schema.define(version: 2021_04_04_170251) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
@@ -54,14 +54,14 @@ ActiveRecord::Schema.define(version: 2021_04_05_015005) do
     t.string "password_digest"
     t.date "birthday"
     t.string "uid"
+    t.string "provider"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "provider"
   end
 
-  add_foreign_key "favorite_strains", "strains"
-  add_foreign_key "favorite_strains", "users"
-  add_foreign_key "reviews", "strains"
-  add_foreign_key "reviews", "users"
-  add_foreign_key "strains", "categories"
+  add_foreign_key "favorite_strains", "strains", on_delete: :cascade
+  add_foreign_key "favorite_strains", "users", on_delete: :cascade
+  add_foreign_key "reviews", "strains", on_delete: :cascade
+  add_foreign_key "reviews", "users", on_delete: :cascade
+  add_foreign_key "strains", "categories", on_delete: :cascade
 end

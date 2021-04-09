@@ -3,8 +3,8 @@ class CreateReviews < ActiveRecord::Migration[6.1]
     create_table :reviews do |t|
       t.string :context
       t.integer :rating
-      t.references :user, null: false, foreign_key: true
-      t.references :strain, null: false, foreign_key: true
+      t.references :user, null: false, foreign_key: {on_delete: :cascade}
+      t.references :strain, null: false, foreign_key: {on_delete: :cascade}
 
       t.timestamps
     end
