@@ -20,6 +20,7 @@ class UsersController < ApplicationController
         @user = current_user
         @reviews = @user.reviews
         @strains = @user.strains
+        @favorites = @user.favorites
     end
 
     def edit
