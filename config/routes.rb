@@ -10,7 +10,9 @@ Rails.application.routes.draw do
 
   resources :categories, only: [:index, :show]
 
-  resources :users, except: [:new, :create, :index]
+  resources :users, except: [:new, :create, :index] do
+    resources :favorites, only: [:index]
+  end
 
   get '/signup', to: 'users#new'
   post '/signup', to: 'users#create'
