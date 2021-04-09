@@ -2,3 +2,9 @@
 <% @strains.each do |strain| %>    
     <%= link_to strain.name, strain_path(strain) %></br>
 <% end %>
+
+<%= form_with(url: strains_path, method: :get) do |f| %>
+    <%= f.label :search, "Search strains by name" %>
+    <%= f.text_field :search %>
+    <%= f.submit "Search" %>
+<% end %>

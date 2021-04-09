@@ -9,7 +9,6 @@ class ReviewsController < ApplicationController
     end
 
     def create
-        byebug
         @review = Review.new(review_params)
         if @review.save
             redirect_to strain_reviews_path
