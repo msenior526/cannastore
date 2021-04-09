@@ -1,5 +1,5 @@
 <h1> EDIT PROFILE </h1>
-<%= form_with(model: @user, url: user_path) do |f| %>
+<%= form_with(model: @user, url: user_path(@user)) do |f| %>
     <%= f.label :username %>
     <%= f.text_field :username %>
         </br>
@@ -11,5 +11,5 @@
     <%= f.password_field :password_confirmation %>
 
 
-    <%= f.submit %>
+    <%= f.submit  %>
 <% end %>
