@@ -13,7 +13,6 @@ class ReviewsController < ApplicationController
         if @review.save
             redirect_to strain_reviews_path
         else
-            byebug
             render :new
         end
     end

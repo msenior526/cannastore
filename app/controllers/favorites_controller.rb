@@ -7,4 +7,7 @@ class FavoritesController < ApplicationController
             redirect_if_not_logged_in
         end
     end
+
+    def create
+    end
 end

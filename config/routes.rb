@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   resources :categories, only: [:index, :show]
 
   resources :users, except: [:new, :create, :index] do
-    resources :favorites, only: [:index]
+    resources :favorites, only: [:index, :create]
   end
 
   get '/signup', to: 'users#new'
