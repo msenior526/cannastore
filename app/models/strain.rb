@@ -6,7 +6,7 @@ class Strain < ApplicationRecord
   has_many :favorited_by, through: :favorite_strains, source: :user
 
   validates :name, presence: true, uniqueness: true
-  # scope :search_by_name, -> (search) {where("name LIKE, ?", "#{search}%")}
+  # scope :search_by_name, -> (search) {where("name LIKE ?", "#{search}%")}
 
   def self.by_thc_content
     self.order(thc_content: :desc)
@@ -14,7 +14,7 @@ class Strain < ApplicationRecord
 
   def self.search_by_name(search)
     if search
-      where("name LIKE, ?", "#{search}%")
+      where("name LIKE ?", "#{search}%")
     else
       all
     end
