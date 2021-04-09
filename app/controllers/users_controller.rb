@@ -34,6 +34,10 @@ class UsersController < ApplicationController
     end
 
     def destroy
+        u = current_user
+        u.delete
+        session.clear
+        redirect_to login_path
     end
 
     private
