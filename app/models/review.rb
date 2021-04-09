@@ -7,6 +7,6 @@ class Review < ApplicationRecord
   validates :rating, numericality: { only_integer: true, greater_than: 0, less_than: 11 }
 
   # Add user to validates associated
-  validates_associated :strain
+  validates_associated :strain, :user
 
 end
