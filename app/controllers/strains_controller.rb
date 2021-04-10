@@ -5,11 +5,12 @@ class StrainsController < ApplicationController
     end
 
     def create
-        strain = Strain.find_by_or_create(strain_params)
-        if strain.save
-            redirect_to strain_path(strain)
+        @strain = Strain.new(strain_params)
+        byebug
+        if @strain.save
+            redirect_to strain_path(@strain)
         else
-            render :new
+            render :new, errors: "Name cNT VE BLANK"
         end
     end
 

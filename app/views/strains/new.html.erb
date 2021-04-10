@@ -1,4 +1,16 @@
 <h1> CREATE A NEW STRAIN </h1>
+
+<% if @strain.errors.any? %>
+<div id="error_explanation">
+  <h2>There were some errors:</h2>
+  <ul>
+    <% @strain.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+
 <%= form_for(@strain) do |f| %>
     
     <%= f.collection_select :category_id, Category.all, :id, :name %>
