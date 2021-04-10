@@ -5,7 +5,7 @@ class StrainsController < ApplicationController
     end
 
     def create
-        strain = Strain.new(strain_params)
+        strain = Strain.find_by_or_create(strain_params)
         if strain.save
             redirect_to strain_path(strain)
         else
