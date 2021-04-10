@@ -1,4 +1,6 @@
 <h1>SIGNUP</h1>
+
+
 <%= form_with(model: @user, url: signup_path)  do |f| %>
     
     <% if @user.errors.any? %>
@@ -18,8 +20,9 @@
     <%= f.label :email %>
     <%= f.email_field :email %>
         </br>
+        
     <%= f.label :birthday %>
-    <%= f.date_field :birthday %>
+    <%= f.date_field :birthday, value: "YYYY-DD-MM" %>
         </br>
     <%= f.label :password %>
     <%= f.password_field :password %>

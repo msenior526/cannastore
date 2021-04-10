@@ -8,7 +8,9 @@
 </br>
 
 <%= form_with(url: root_path, method: :get) do |f| %>
-  <%= f.check_box :yes %>
-  <%= f.check_box :no %>
+  <%= f.radio_button :choice, "yes" %>
+  <%= f.label :choice_yes, "YES" %>
+  <%= f.radio_button :choice, "no" %>
+  <%= f.label :choice_no, "NO" %>
   <%= f.submit "Submit" %>
 <% end %>
