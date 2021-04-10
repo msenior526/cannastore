@@ -7,8 +7,9 @@
 <%= button_to "Delete Account", user_path(@user), method: :delete %> 
 <%= link_to "Edit Account", edit_user_path(@user)%> 
 
-<h3>Your reviews</h3> </br>
-<%= render partial: 'reviews/review', :collection => @reviews %>
+<h3>Your reviews</h3>
+<%= render 'reviews/review', collection: @reviews %>
+
 
 <h3>Strains You Reviewed</h3>
 <% @strains.each do |strain| %>

@@ -1,6 +1,6 @@
 <h1>LOGIN</h1>
 
-<% if @user.errors.any? %>
+<% if @user && @user.errors.any? %>
     <div id="error_explanation">
       <h2>There were some errors:</h2>
       <ul>

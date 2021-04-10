@@ -22,7 +22,8 @@ class StrainsController < ApplicationController
     end
 
     def show
-       @strain = Strain.find_by_id(params[:id])
+        @user = current_user
+        @strain = Strain.find_by_id(params[:id])
     end
 
     private

@@ -1,5 +1,4 @@
 <% @reviews.each do |review| %>
-    <%= review.user.username %></br>
-    <%= review.created_at %><br>
-    <%= review.context %><br>
+    <%=  review.context %></br>
+    <%=  review.rating %></br>
 <% end %>
