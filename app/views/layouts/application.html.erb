@@ -26,22 +26,25 @@
       <li class="nav-item active">
         <a class="nav-link" href="<%= strains_path %>">Strains</a>
       </li>
-  
+      <li class="nav-item active">
+        <a class="nav-link" href="<%= categories_path %>">Categories</a>
+      </li>
+        <% if logged_in? %>
         <li class="nav-item">
-          <a class="nav-link" href=" ">Account</a>
+          <a class="nav-link" href=" <%= user_path(current_user) %>">Account</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="<%= logout_path %>">Log Out</a>
         </li>
 
       <ul class="nav navbar-nav ml-auto">
-
+        <% else %>
         <li class="nav-item">
           <a class="nav-link" href="<%= signup_path %>"><span class="fas fa-user"></span> Sign Up</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="<%= login_path %>"><span class="fas fa-sign-in-alt"></span> Login</a>
         </li>
+        <% end %>
 
 
       <li class="nav-item">
