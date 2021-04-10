@@ -1,9 +1,7 @@
 <h1><%= @strain.name %></h1></br>
 
-<%= form_with(model: @favoritestrains, url: user_favorites_path(@current_user)) do |f| %>
-    <%= f.hidden_field :user_id %>
-    <%= f.hidden_field :strain_id, value: @strain.id %>
-    <%= f.submit "add to/remove from favorites" %>
+<% if current_user %>
+    <%= render partial: 'favorites/form' %>
 <% end %>
 
 <%= @strain.category.name %></br>
