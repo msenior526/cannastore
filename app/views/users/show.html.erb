@@ -1,5 +1,5 @@
 <% if @user.profile_picture.attached? %>
-    <image src="<%= url_for(@user.profile_picture) %>">
+    <img src="<%= url_for(@user.profile_picture) %>" width="300", height= "400">
 <% end %>
 
 <h1>WELCOME <%= @user.username %></h1>
