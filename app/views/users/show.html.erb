@@ -16,7 +16,9 @@
 
 
 <h3>Strains You Reviewed</h3>
+<div class="row row-cols-1 row-cols-md-2 g-4">
 <%= render(partial: 'strains/strain', collection: @strains) || "No strains found" %>
+</div>
  
 
 <h3><%= link_to "Your Favorites", user_favorites_path(current_user) %></h3>
