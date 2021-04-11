@@ -7,7 +7,7 @@ class UsersController < ApplicationController
     end
 
     def create
-        @user = User.new(user_params(:username, :email, :birthday, :password, :password_confirmation))
+        @user = User.new(user_params(:username, :profile_picture, :email, :birthday, :password, :password_confirmation))
         if @user.save
             session[:user_id] = @user.id
             redirect_to @user
@@ -29,7 +29,7 @@ class UsersController < ApplicationController
 
     def update
         @user = current_user
-        if @user.update(user_params(:username, :password, :password_confirmation))
+        if @user.update(user_params(:username, :profile_picture, :password, :password_confirmation))
             redirect_to user_path(@user)
         else 
             render :edit

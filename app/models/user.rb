@@ -3,6 +3,7 @@ class User < ApplicationRecord
     has_many :strains, through: :reviews
     has_many :favorite_strains
     has_many :favorites, through: :favorite_strains, source: :strain, :dependent => :destroy
+    has_one_attached :profile_picture
     has_secure_password
 
     validate :of_age?, unless: :google_account
