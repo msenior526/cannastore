@@ -7,10 +7,5 @@
 <%= @strain.category.name %></br>
 <%= @strain.thc_content  %>percent</br>
 <%= link_to "REVIEWS", strain_reviews_path(@strain) %>
-<% @strain.reviews.each do |review| %></br>
-    <%= review.user.username %></br>
-    <%= review.context %></br>
-    <%= review.rating %>/10
-<% end %>
 
 <%= link_to "New Review", new_strain_review_path(@strain) %>

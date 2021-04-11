@@ -4,7 +4,7 @@ class WelcomeController < ApplicationController
             session[:choice_id]
             redirect_to strains_path
         elsif params[:choice] == "no"
-            redirect_to :home, alert: "You must be 21 to enter!"
+            redirect_to :root, alert: "You must be 21 to enter!"
         end
     end
 end

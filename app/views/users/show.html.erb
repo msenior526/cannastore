@@ -8,13 +8,12 @@
 <%= link_to "Edit Account", edit_user_path(@user)%> 
 
 <h3>Your reviews</h3>
-<%= render 'reviews/review', collection: @reviews %>
+<%= render(partial: 'reviews/review', collection: @reviews) || "No reviews found"%>
 
 
 <h3>Strains You Reviewed</h3>
-<% @strains.each do |strain| %>
-    <%= strain.name %>
-<% end %>
+<%= render(partial: 'strains/strain', collection: @strains) || "No strains found" %>
+ 
 
 <h3><%= link_to "Your Favorites", user_favorites_path(current_user) %></h3>
 <% @favorites.each do |favorite| %>

@@ -14,7 +14,7 @@ class Strain < ApplicationRecord
 
   def self.search_by_name(search)
     if search
-      where("name LIKE ?", "#{search}%")
+      where("name LIKE ?", "%#{search}%")
     else
       all
     end

@@ -1,5 +1,3 @@
 <h1><%= @category.name %></h1>
 </br>
-<% @category.strains.each do |strain| %>
-    <%= strain.name %></br>
-<% end %>
+<%= render partial: 'strains/strain', collection: @category.strains %>

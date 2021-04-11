@@ -6,7 +6,6 @@ class StrainsController < ApplicationController
 
     def create
         @strain = Strain.new(strain_params)
-        byebug
         if @strain.save
             redirect_to strain_path(@strain)
         else
