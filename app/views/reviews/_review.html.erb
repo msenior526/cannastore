@@ -1,4 +1,4 @@
-<% @reviews.each do |review| %>
+
     <%=  review.context %></br>
     <%=  review.rating %></br>
-<% end %>
+    <%=  review.created_at.strftime("Printed on %m/%d/%Y") %></br>
