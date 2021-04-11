@@ -1,4 +1,11 @@
 
-    <%=  review.context %></br>
-    <%=  review.rating %></br>
-    <%=  review.created_at.strftime("Printed on %m/%d/%Y") %></br>
+
+    <div class="card">
+    <div class="card-body">
+      <h5 class="card-title"> <%=  review.user.username %></h5>
+      <p class="card-title text-end"><%=  review.created_at.strftime("%b %d, %Y") %></p>
+      <p class="card-text">Rating: <%=  review.rating %>/10</p>
+      <p class="card-text"><%=  review.context %></p>
+    </div>
+  </div>
+  </br>

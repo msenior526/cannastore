@@ -18,8 +18,7 @@ class UsersController < ApplicationController
 
     def show
         @user = current_user
-
-        @strains = @user.strains
+        @strains = @user.strains.uniq
         @reviews = @user.reviews
         @favorites = @user.favorites
     end
