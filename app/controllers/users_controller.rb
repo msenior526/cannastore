@@ -28,7 +28,7 @@ class UsersController < ApplicationController
     end
 
     def update
-        @user = current_user
+        @user = current_user   
         if @user.update(user_params(:username, :profile_picture, :password, :password_confirmation))
             redirect_to user_path(@user)
         else 

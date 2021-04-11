@@ -1,3 +1,7 @@
+<% if @user.profile_picture.attached? %>
+    <image src="<%= url_for(@user.profile_picture) %>">
+<% end %>
+
 <h1>WELCOME <%= @user.username %></h1>
 
 <%= @user.standard_date %>
