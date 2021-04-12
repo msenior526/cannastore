@@ -1,4 +1,5 @@
 class StrainsController < ApplicationController
+    before_action :find_strain, only: :show, :edit, :update, :destroy
 
     def new
         @strain = Strain.new
@@ -26,7 +27,6 @@ class StrainsController < ApplicationController
 
     def show
         @user = current_user
-        @strain = Strain.find_by_id(params[:id])
     end
 
     def edit
@@ -38,12 +38,16 @@ class StrainsController < ApplicationController
     end
 
     def destroy
-        
+
     end
 
     private
 
     def strain_params
         params.require(:strain).permit(:name, :description, :thc_content, :category_id)
+    end
+
+    def find_strain
+        @strain = Strain.find_by_(id: params[:id])
     end
 end
