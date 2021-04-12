@@ -5,6 +5,12 @@
     <%= f.text_field :search %>
     <%= f.submit "Search" %>
 <% end %>
+
+<%= form_with(url: strains_path, method: :get) do |f| %>
+    <%= f.label :filter, "Filter by" %>
+    <%= f.select :filter, value: "thc content" %>
+    <%= f.submit "Search" %>
+<% end %>
 </br>
 
 <div class="row row-cols-1 row-cols-md-2 g-4">

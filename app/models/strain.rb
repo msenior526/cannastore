@@ -26,4 +26,15 @@ class Strain < ApplicationRecord
     end
     n.join(" ")
   end
+
+  def average_rating
+    if reviews.empty?
+      n = "No reviews"
+    else
+      n = reviews.collect do |review|
+        review.rating
+    end
+    n.sum / n.length
+  end
+  end
 end
