@@ -20,6 +20,9 @@ class Strain < ApplicationRecord
     end
   end
 
+  def self.most_reviewed
+  end
+
   def name_without_whtespaces_and_capitalized
     n = name.strip.split.collect do |word|
       word.to_s.capitalize
