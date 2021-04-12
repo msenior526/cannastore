@@ -6,6 +6,9 @@
       <p class="card-title text-end"><%=  review.created_at.strftime("%b %d, %Y") %></p>
       <p class="card-text">Rating: <%=  review.rating %>/10</p>
       <p class="card-text"><%=  review.context %></p>
+      <% if  current_user == review.user %>
+      <%= button_to "Delete Review", strain_review_path(review.strain.id, review.id), method: :delete %>
+      <% end %>
     </div>
   </div>
   </br>

@@ -27,6 +27,17 @@ class ReviewsController < ApplicationController
     end
 
     def destroy
+        if params[:strain_id]
+            @strain = Strain.find(params[:strain_id])
+            if @strain.nil?
+                redirect_to strains_path, alert: "Strain not found."
+            else
+                @review = @strain.reviews.find_by(id: params[:id]).destroy
+                redirect_to strain_reviews_path(@strain), notice: "You have successfully deleted your review!"
+            end
+        else
+            @review = Review.find_by(id: params[:id]).destroy
+        end
     end
 
     private
