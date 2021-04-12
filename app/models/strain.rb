@@ -21,6 +21,7 @@ class Strain < ApplicationRecord
   end
 
   def self.most_reviewed
+      order(review_count: :desc).first
   end
 
   def name_without_whtespaces_and_capitalized
@@ -39,5 +40,9 @@ class Strain < ApplicationRecord
     end
     n.sum / n.length
   end
+  end
+
+  def review_count
+    self.reviews.length
   end
 end
