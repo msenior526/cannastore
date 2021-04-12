@@ -1,9 +1,6 @@
 <h1>SIGNUP</h1>
 
-
-<%= form_with(model: @user, url: signup_path)  do |f| %>
-    
-    <% if @user.errors.any? %>
+<% if @user.errors.any? %>
     <div id="error_explanation">
       <h2>There were some errors:</h2>
       <ul>
@@ -13,28 +10,65 @@
       </ul>
     </div>
   <% end %>
+<div class="card text-center" style="width: 36rem;">
+<div class="card-body">
+<%= form_with(model: @user, url: signup_path)  do |f| %>
+  
+  <div class="mb-3">
+    <div class="form-label">
+      <%= f.label :email %>
+    </div>
+    <%= f.email_field :email %>
+    <div id="emailHelp" class="form-text">We will never share your email with anyone else.</div>
+  </div>
+  
+  <div class="mb-3">
+    <div class="form-label">
+      <%= f.label :username %>
+    </div>
+    <div class="form-text">
+      <%= f.text_field :username %>
+    </div>
+    </div>
 
-    <%= f.label :username %>
-    <%= f.text_field :username %>
-        </br>
+
     <%= f.label :profile_picture %>
     <%= f.file_field :profile_picture %>
         </br>
-    <%= f.label :email %>
-    <%= f.email_field :email %>
+
+        <div class="mb-3">
+        <div class="form-label">
+          <%= f.label :birthday %>
+        </div>
+        <div class="form-text">
+        <%= f.date_field :birthday, value: "YYYY-DD-MM" %>
+        </div>
+          </br>
+
+    <div class="mb-3">
+      <div class="form-label">
+        <%= f.label :password %>
+      </div>
+      <div class="form-text">
+        <%= f.password_field :password %>
+      </div>
         </br>
-        
-    <%= f.label :birthday %>
-    <%= f.date_field :birthday, value: "YYYY-DD-MM" %>
-        </br>
-    <%= f.label :password %>
-    <%= f.password_field :password %>
-        </br>
-    <%= f.label :password_confirmation %>
-    <%= f.password_field :password_confirmation %>
 
 
-    <%= f.submit %>
+    <div class="mb-3">
+      <div class="form-label">
+        <%= f.label :password_confirmation %>
+      </div>
+      <div class="form-text">
+        <%= f.password_field :password_confirmation %>
+      </div>
+        </br>
+
+    </div>
+    <div class="btn btn-primary"><%= submit_tag "Signup" %></div>
+    
 <% end %>
+</div>
+</div>
 
 <%= button_to "Log in with Google", '/auth/google_oauth2'  %>
