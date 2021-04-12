@@ -22,7 +22,6 @@ class SessionsController < ApplicationController
         @user = User.find_or_create_by(provider: auth['provider'], uid: auth['uid']) do |u|
             u.email = auth[:info][:email]
             u.username = auth[:info][:name].downcase.gsub(" ", "_")
-            u.birthday = DateTime.now.strftime("%Y-%m-%d")
             u.password = SecureRandom.hex(20)
         end
         if @user.valid?
