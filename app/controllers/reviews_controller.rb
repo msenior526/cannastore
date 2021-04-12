@@ -11,7 +11,7 @@ class ReviewsController < ApplicationController
     def create
         @review = Review.new(review_params)
         if @review.save
-            redirect_to strain_reviews_path
+            redirect_to strain_reviews_path, notice: "Your new review was created!"
         else
             render :new
         end
