@@ -1,5 +1,5 @@
 class StrainsController < ApplicationController
-    before_action :find_strain, only: :show, :edit, :update, :destroy
+    before_action :find_strain, only: [:show, :edit, :update, :destroy]
 
     def new
         @strain = Strain.new
@@ -48,6 +48,6 @@ class StrainsController < ApplicationController
     end
 
     def find_strain
-        @strain = Strain.find_by_(id: params[:id])
+        @strain = Strain.find_by(id: params[:id])
     end
 end
