@@ -1,3 +1,5 @@
+<%= render partial: 'layouts/error', locals: {object: @favoritestrains} %>
+
 <%= form_with(model: @favoritestrains, url: user_favorites_path(@current_user)) do |f| %>
     <%= f.hidden_field :user_id %>
     <%= f.hidden_field :strain_id, value: @strain.id %>

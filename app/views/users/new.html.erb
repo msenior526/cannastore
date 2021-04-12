@@ -1,15 +1,6 @@
 <h1 class="text-center">Signup</h1>
 
-<% if @user.errors.any? %>
-    <div id="error_explanation">
-      <h2>There were some errors:</h2>
-      <ul>
-        <% @user.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-<% end %>
+<%= render partial: 'layouts/error', locals: {object: @user} %>
 
 <div class="card text-center" style="width: 36rem;">
 <div class="card-body">
