@@ -5,7 +5,8 @@
 <% end %>
 
 <%= @strain.category.name %></br>
-<%= @strain.thc_content  %>percent</br>
-<%= link_to "REVIEWS", strain_reviews_path(@strain) %>
-
+<p>Description: <%= @strain.description.capitalize %></p>
+<p>THC Content: <%= @strain.thc_content %>%</p></br>
+<%= link_to "All Reviews", strain_reviews_path(@strain) %></br>
+<%= button_to "Delete Strain", strain_path(@strain), method: :delete %>
 <%= link_to "New Review", new_strain_review_path(@strain) %>

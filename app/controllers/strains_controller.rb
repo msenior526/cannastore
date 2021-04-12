@@ -43,7 +43,8 @@ class StrainsController < ApplicationController
     end
 
     def destroy
-
+        @strain.destroy
+        redirect_to strains_path
     end
 
     private
