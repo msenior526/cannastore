@@ -9,9 +9,11 @@
         <% end %>
       </ul>
     </div>
-  <% end %>
+<% end %>
+
 <div class="card text-center" style="width: 36rem;">
 <div class="card-body">
+
 <%= form_with(model: @user, url: signup_path)  do |f| %>
   
   <div class="mb-3">
@@ -31,10 +33,11 @@
     </div>
     </div>
 
-
+    <div class="mb-3">
+    <div class="form-label">
     <%= f.label :profile_picture %>
+    </div>
     <%= f.file_field :profile_picture %>
-        </br>
 
         <div class="mb-3">
         <div class="form-label">
