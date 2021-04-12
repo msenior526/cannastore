@@ -1,6 +1,6 @@
 class StrainsController < ApplicationController
     before_action :find_strain, only: [:show, :edit, :update, :destroy]
-    before_action :redirect_if_not_logged_in, except: [:show, :index]
+    before_action :redirect_if_not_logged_in, except: [:show, :index, :most_reviewed]
 
 
     def new
@@ -45,6 +45,11 @@ class StrainsController < ApplicationController
     def destroy
         @strain.destroy
         redirect_to strains_path
+    end
+
+    def most_reviewed
+   
+        @strain = Strain.most_reviewed
     end
 
     private

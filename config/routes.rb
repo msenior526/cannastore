@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :strains do 
     resources :reviews
   end
+  get '/most_reviewed', to: 'strains#most_reviewed'
 
   resources :categories, only: [:index, :show]
 
