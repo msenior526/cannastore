@@ -1,7 +1,7 @@
 <%= flash[:notice] if flash[:notice]%>
-<% if @user.profile_picture.attached? %>
-    <img src="<%= url_for(@user.profile_picture) %>" width="300", height= "400">
-<% end %>
+
+    <%= image_tag @user.profile_picture if @user.profile_picture.attached? %>
+
 
 <h1>WELCOME <%= @user.username %></h1>
 

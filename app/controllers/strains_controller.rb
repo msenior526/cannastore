@@ -48,7 +48,6 @@ class StrainsController < ApplicationController
     end
 
     def most_reviewed
-   
         @strain = Strain.most_reviewed
     end
 
