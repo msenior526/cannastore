@@ -1,4 +1,4 @@
-<h1>LOGIN</h1>
+<h1 class="text-center">Login</h1>
 
 <% if @user && @user.errors.any? %>
     <div id="error_explanation">
@@ -11,15 +11,34 @@
     </div>
   <% end %>
 
-<%= form_with(model: @user, url: login_path) do |f| %>
+  <div class="card text-center" style="width: 36rem;">
+  <div class="card-body">
   
+  <%= form_with(model: @user, url: signup_path)  do |f| %>
+    
+    <div class="mb-3">
+      <div class="form-label">
         <%= f.label :email %>
-        <%= f.email_field :email %>
+      </div>
+      <%= f.email_field :email %>
+      <div id="emailHelp" class="form-text">We will never share your email with anyone else.</div>
+    </div>
+
+      <div class="mb-3">
+        <div class="form-label">
+          <%= f.label :password %>
+        </div>
+        <div class="form-text">
+          <%= f.password_field :password %>
+        </div>
+          </br>
   
-        <%= f.label :password %>
-        <%= f.password_field :password %>
-
-    <%= f.submit "LOGIN" %>
-<% end %>
-
-<%= button_to "Log in with Google", '/auth/google_oauth2'  %>
+      </div>
+      <div class="btn btn-primary"><%= submit_tag "Login" %></div>
+      
+  <% end %>
+  </br>
+  <%= button_to "Log in with Google", '/auth/google_oauth2'  %>
+  </div>
+  </div>
+  
