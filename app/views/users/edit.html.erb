@@ -6,7 +6,7 @@
         </br>
         </br>
         <%= f.label :profile_picture %>
-        <%= f.file_field :profile_picture %>
+        <%= f.file_field :profile_picture,  accept: "image/jpeg, image/gif, image/png, image/pdf"%>
         </br>
     <%= f.label :password %>
     <%= f.password_field :password %>

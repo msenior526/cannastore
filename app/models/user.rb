@@ -8,6 +8,8 @@ class User < ApplicationRecord
 
     #validate :of_age?, unless: :google_account
     validates :username, :email, presence: true, uniqueness: true
+    validates :profile_picture, content_type: {in: %w[image/jpeg image/gif image/png image/pdf],
+                                            message: "must be a valid image format"}
 
     # def standard_date
     #     self.birthday.strftime("%b %d, %Y")
