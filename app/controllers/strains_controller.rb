@@ -29,6 +29,18 @@ class StrainsController < ApplicationController
         @strain = Strain.find_by_id(params[:id])
     end
 
+    def edit
+
+    end
+
+    def update
+
+    end
+
+    def destroy
+        
+    end
+
     private
 
     def strain_params
