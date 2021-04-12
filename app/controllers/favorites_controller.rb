@@ -17,16 +17,6 @@ class FavoritesController < ApplicationController
 
     private
 
-    # def remove_favorite(user, strain)
-    #     FavoriteStrain.where(["user_id = ? and strain_id = ?", user.id, strain.id]).delete_all
-    # end
-
-    # def add_favorite(user, strain)
-    #     if !user.favorites.include?(strain)
-    #         FavoriteStrain.create(user_id: user.id, strain_id: strain.id)
-    #     end
-    # end
-
     def add_or_remove_favorite(user, strain)
         if !user.favorites.include?(strain)
             FavoriteStrain.create(user_id: user.id, strain_id: strain.id)
