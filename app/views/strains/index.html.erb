@@ -1,4 +1,5 @@
 <h1 class="text-center">All Strains</h1>
+<%= link_to "New Strain", new_strain_path %>
 
 <%= form_with(url: strains_path, method: :get) do |f| %>
     <%= f.label :search, "Search strains by name" %>

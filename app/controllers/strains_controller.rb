@@ -10,9 +10,9 @@ class StrainsController < ApplicationController
     def create
         @strain = Strain.new(strain_params)
         if @strain.save
-            redirect_to strain_path(@strain)
+            redirect_to strain_path(@strain), notice: "You have sucessfully created a strain!"
         else
-            render :new, errors: "Name cNT VE BLANK"
+            render :new
         end
     end
 
