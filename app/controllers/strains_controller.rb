@@ -1,5 +1,7 @@
 class StrainsController < ApplicationController
     before_action :find_strain, only: [:show, :edit, :update, :destroy]
+    before_action :redirect_if_not_logged_in, except: [:show, :index]
+
 
     def new
         @strain = Strain.new
@@ -30,11 +32,14 @@ class StrainsController < ApplicationController
     end
 
     def edit
-
     end
 
     def update
-
+        if @strain.update(strain_params)
+            redirect_to strain_path(@strain)
+        else 
+            render :edit
+        end
     end
 
     def destroy
