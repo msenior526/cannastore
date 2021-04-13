@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
         else
             @user = User.find_by(email: params[:user][:email])
             if @user && @user.authenticate(params[:user][:password])
-                session[:user_id] = @user.id
+                log_in @user
                 redirect_to @user, notice: "You have successfully logged in!"
             else
                 render :new
@@ -25,7 +25,7 @@ class SessionsController < ApplicationController
             u.password = SecureRandom.hex(20)
         end
         if @user.valid?
-            session[:user_id] = @user.id
+            log_in @user
             redirect_to @user, notice: "You have successfully logged in!"
         else
             render :new
@@ -42,5 +42,9 @@ class SessionsController < ApplicationController
 
     def auth
         request.env['omniauth.auth']
+    end
+
+    def log_in(user)
+        session[:user_id] = user.id
     end
 end
