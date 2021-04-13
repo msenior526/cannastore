@@ -25,9 +25,7 @@ class Strain < ApplicationRecord
   end
 
   def name_without_whtespaces_and_capitalized
-    n = name.strip.split.collect do |word|
-      word.to_s.capitalize
-    end
+    n = name.strip.split.collect {|word| word.to_s.capitalize}
     n.join(" ")
   end
 
