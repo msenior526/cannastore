@@ -33,7 +33,7 @@ class ReviewsController < ApplicationController
                 redirect_to strains_path, alert: "Strain not found."
             else
                 @review = @strain.reviews.find_by(id: params[:id]).destroy
-                redirect_to strain_reviews_path(@strain), notice: "You have successfully deleted your review!"
+                redirect_back fallback_location: current_user, notice: "You have successfully deleted your review!"
             end
         else
             @review = Review.find_by(id: params[:id]).destroy
