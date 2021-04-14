@@ -20,7 +20,6 @@ class StrainsController < ApplicationController
         if params[:search]
             @strains = Strain.search_by_name(params[:search])
         elsif params[:filter] == "thc_content"
-            
             @strains = Strain.by_thc_content
         else
             @strains = Strain.all

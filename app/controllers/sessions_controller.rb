@@ -19,11 +19,7 @@ class SessionsController < ApplicationController
     end
 
     def omniauth
-        @user = User.find_or_create_by(provider: auth['provider'], uid: auth['uid']) do |u|
-            u.email = auth[:info][:email]
-            u.username = auth[:info][:name].downcase.gsub(" ", "_")
-            u.password = SecureRandom.hex(20)
-        end
+        @user = omniauth_user
         if @user.valid?
             log_in @user
             redirect_to @user, notice: "You have successfully logged in!"
@@ -46,5 +42,13 @@ class SessionsController < ApplicationController
 
     def log_in(user)
         session[:user_id] = user.id
+    end
+
+    def omniauth_user
+        User.find_or_create_by(provider: auth['provider'], uid: auth['uid']) do |u|
+            u.email = auth[:info][:email]
+            u.username = auth[:info][:name].downcase.gsub(" ", "_")
+            u.password = SecureRandom.hex(20)
+        end
     end
 end
