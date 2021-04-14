@@ -47,8 +47,7 @@ class StrainsController < ApplicationController
     end
 
     def most_reviewed
-        strain_id = Strain.strain_most_reviewed.keys.first
-        @strain = Strain.find_by(id: strain_id)
+        @strain = Strain.most_reviews.first
     end
 
     private
