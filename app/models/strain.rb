@@ -24,10 +24,6 @@ class Strain < ApplicationRecord
     Review.includes(:strain).group(:strain_id).order("strain_id desc").limit(1).count
   end
 
-  # def review_count
-  #   self.reviews.length
-  # end
-
   def name_without_whtespaces_and_capitalized
     n = name.strip.split.collect {|word| word.to_s.capitalize}
     n.join(" ")
