@@ -58,6 +58,6 @@ class StrainsController < ApplicationController
     end
 
     def find_strain
-        @strain = Strain.find_by(id: params[:id])
+        @strain = Strain.find_by_id(params[:id])
     end
 end
