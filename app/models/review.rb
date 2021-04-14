@@ -1,6 +1,6 @@
 class Review < ApplicationRecord
   belongs_to :user
-  belongs_to :strain
+  belongs_to :strain, counter_cache: true
 
   validates :context, :rating, presence: true
   validates :context, length: {maximum: 200}

@@ -6,7 +6,7 @@ class Strain < ApplicationRecord
   has_many :favorited_by, through: :favorite_strains, source: :user
 
   validates :name, presence: true, uniqueness: true
-  # scope :search_by_name, -> (search) {where("name LIKE ?", "#{search}%")}
+  scope :most_reviews, ->{ order(reviews_count: :desc) }
 
   def self.by_thc_content
     self.order(thc_content: :desc)
@@ -24,9 +24,9 @@ class Strain < ApplicationRecord
     Review.includes(:strain).group(:strain_id).order("strain_id desc").limit(1).count
   end
 
-  def review_count
-    self.reviews.length
-  end
+  # def review_count
+  #   self.reviews.length
+  # end
 
   def name_without_whtespaces_and_capitalized
     n = name.strip.split.collect {|word| word.to_s.capitalize}

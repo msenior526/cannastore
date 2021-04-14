@@ -4,6 +4,7 @@ class CreateStrains < ActiveRecord::Migration[6.1]
       t.string :name
       t.string :description
       t.integer :thc_content
+      t.integer :reviews_count
       t.references :category, null: false, foreign_key: {on_delete: :cascade}
 
       t.timestamps

@@ -70,6 +70,7 @@ ActiveRecord::Schema.define(version: 2021_04_11_180213) do
     t.string "name"
     t.string "description"
     t.integer "thc_content"
+    t.integer "reviews_count"
     t.integer "category_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
