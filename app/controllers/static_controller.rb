@@ -1,4 +1,4 @@
-class WelcomeController < ApplicationController
+class StaticController < ApplicationController
     def home
         if params[:choice] == "yes"
             session[:choice_id]
@@ -6,5 +6,11 @@ class WelcomeController < ApplicationController
         elsif params[:choice] == "no"
             redirect_to :root, alert: "You must be 21 to enter!"
         end
+    end
+
+    def contact
+    end
+
+    def about
     end
 end
