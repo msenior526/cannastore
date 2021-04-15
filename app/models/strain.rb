@@ -20,10 +20,6 @@ class Strain < ApplicationRecord
     end
   end
 
-  def self.strain_most_reviewed
-    Review.includes(:strain).group(:strain_id).order("strain_id desc").limit(1).count
-  end
-
   def name_without_whtespaces_and_capitalized
     n = name.strip.split.collect {|word| word.to_s.capitalize}
     n.join(" ")
@@ -40,5 +36,7 @@ class Strain < ApplicationRecord
   end
   end
 
-
+  def category_name
+    self.category.name
+  end
 end

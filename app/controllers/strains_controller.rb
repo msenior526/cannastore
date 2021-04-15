@@ -19,8 +19,9 @@ class StrainsController < ApplicationController
     def index
         if params[:search]
             @strains = Strain.search_by_name(params[:search])
-        elsif params[:filter] == "thc_content"
-            @strains = Strain.by_thc_content
+                if @strains.empty?
+                    flash.now[:alert] = "NO STRAINS FOUND"
+                end
         else
             @strains = Strain.all
         end
