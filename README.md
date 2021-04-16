@@ -1,24 +1,26 @@
-# README
+# CannaStore
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A Rails app that displays cannabis strains. Users can leave a review, add and remove from favorite, and create strains. 
+---
 
-Things you may want to cover:
+## Installation
 
-* Ruby version
+Fork and clone the repo. Once installed locally, run 
+```
+$ bundle install
+```
+to install dependencies. Migrate, and seed the database with
+```
+$ rails db:migrate
+$ rails db:seed
+```
 
-* System dependencies
+## Usage
+ To start the applications server, run
+```
+$ rails s
+```
+Open your browser to localhost:3000 to get started.
 
-* Configuration
+A user can signup on the site, or use a gmail account through third party authentication. Users can add a strain to your favorites, and remove it, only when logged in. Reviewing a strain is also only possible while logged in.
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
