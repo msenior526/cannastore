@@ -5,9 +5,6 @@ class SessionsController < ApplicationController
     end
 
     def create
-        # if params[:user].nil?
-        #     render :new
-        # else
             @user = User.find_by(email: params[:email])
             if @user && @user.authenticate(params[:password])
                 log_in @user
@@ -16,7 +13,6 @@ class SessionsController < ApplicationController
                 flash.now[:alert] =  "Invalid credentials." 
                 render :new
             end
-        # end
     end
 
     def omniauth
