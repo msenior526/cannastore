@@ -1,7 +1,6 @@
 # CannaStore
 
 A Rails app that displays cannabis strains. Users can leave a review, add and remove from favorite, and create strains. 
----
 
 ## Installation
 
