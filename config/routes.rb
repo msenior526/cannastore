@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   post '/logout', to: 'sessions#destroy'
 
-  get '/most_reviewed', to: 'strains#most_reviewed'
+  get '/strains/most_reviewed', to: 'strains#most_reviewed'
   
   resources :strains do 
     resources :reviews
