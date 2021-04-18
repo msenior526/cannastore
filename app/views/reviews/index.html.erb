@@ -1,2 +1,2 @@
 <h1 class="text-center"><%= @strain.name %> Reviews</h1>
-<%= render @reviews %>
+<%= render(@reviews) || "This strain has no reviews yet."%>
