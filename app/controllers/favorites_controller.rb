@@ -19,9 +19,14 @@ class FavoritesController < ApplicationController
 
     def add_or_remove_favorite(user, strain)
         if !user.favorites.include?(strain)
-            FavoriteStrain.create(user_id: user.id, strain_id: strain.id)
+            FavoriteStrain.create(favorite_params)
         else
             FavoriteStrain.where(["user_id = ? and strain_id = ?", user.id, strain.id]).delete_all
         end
+    end
+
+    def favorite_params
+        byebug
+        params.permit(:user_id, :strain_id)
     end
 end
