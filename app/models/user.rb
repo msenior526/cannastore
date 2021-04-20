@@ -16,12 +16,4 @@ class User < ApplicationRecord
             profile_picture.variant(resize_to_limit: [300, 300])
         end
     end
-
-    def google_account
-        if uid && provider
-            true
-        else
-            false
-        end
-    end
 end

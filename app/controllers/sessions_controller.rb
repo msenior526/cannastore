@@ -37,10 +37,6 @@ class SessionsController < ApplicationController
         request.env['omniauth.auth']
     end
 
-    def log_in(user)
-        session[:user_id] = user.id
-    end
-
     def omniauth_user
         User.find_or_create_by(provider: auth['provider'], uid: auth['uid']) do |u|
             u.email = auth[:info][:email]
