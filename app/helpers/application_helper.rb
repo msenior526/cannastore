@@ -7,6 +7,10 @@ module ApplicationHelper
         !!current_user
       end
 
+      def log_in(user)
+        session[:user_id] = user.id
+      end
+
       def redirect_if_not_logged_in
         if !logged_in?
           redirect_to login_path

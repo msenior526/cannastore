@@ -3,7 +3,7 @@
     <%= render partial: 'favorites/form' %>
 <% end %>
 
-<%= @strain.category.name %></br>
+<%= @strain.category_name %></br>
 <p>Description: <%= @strain.description.capitalize %></p>
 <p>THC Content: <%= @strain.thc_content %>%</p></br>
 <%= button_to "Delete Strain", strain_path(@strain), method: :delete %>

@@ -10,7 +10,7 @@ class UsersController < ApplicationController
         @user = User.new(user_params(:username, :profile_picture, :email, :birthday, :password, :password_confirmation))
         @user.profile_picture.attach(params[:profile_picture])
         if @user.save
-            session[:user_id] = @user.id
+            log_in @user
             redirect_to @user, notice: "You have successfully created an account!"
         else
             render :new
