@@ -1,5 +1,4 @@
 <h1>FAVORITES</h1>
 
-<% @favorites.each do |fav| %>
-    <%= link_to fav.name, strain_path(fav) %></br>
-<% end %>
+<%= display_favorites @favorites %>
+ 
