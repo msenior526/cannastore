@@ -1,7 +1,5 @@
 <h1 class="text-center"><%= @strain.name %></h1></br>
-<% if current_user %>
-    <%= render partial: 'favorites/form' %>
-<% end %>
+<%= favorite_button %>
 
 <%= @strain.category_name %></br>
 <p>Description: <%= @strain.description.capitalize %></p>

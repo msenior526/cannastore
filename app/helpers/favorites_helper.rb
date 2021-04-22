@@ -7,4 +7,10 @@ module FavoritesHelper
             FavoriteStrain.where(["user_id = ? and strain_id = ?", user.id, strain.id]).delete_all
         end
     end
+
+    def favorite_button
+        if logged_in?
+            render partial: 'favorites/form'
+        end 
+    end
 end
