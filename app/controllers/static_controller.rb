@@ -4,7 +4,8 @@ class StaticController < ApplicationController
             session[:choice_id]
             redirect_to strains_path
         elsif params[:choice] == "no"
-            redirect_to :root, alert: "You must be 21 to enter!"
+            flash.now[:alert] = "You must be 21 to enter!"
+            render :home
         end
     end
 
