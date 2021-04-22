@@ -1,19 +1,4 @@
 <h1 class="text-center"> EDIT PROFILE </h1>
 <%= render partial: 'layouts/error', locals: {object: @user} %>
-<%= form_with(model: @user, url: user_path(@user)) do |f| %>
-    <%= f.label :username %>
-    <%= f.text_field :username %>
-        </br>
-        </br>
-        <%= f.label :profile_picture %>
-        <%= f.file_field :profile_picture,  accept: "image/jpeg, image/gif, image/png, image/pdf"%>
-        </br>
-    <%= f.label :password %>
-    <%= f.password_field :password %>
-        </br>
-    <%= f.label :password_confirmation %>
-    <%= f.password_field :password_confirmation %>
+<%= render partial: 'edit_form' %>
 
-
-    <%= f.submit  %>
-<% end %>
