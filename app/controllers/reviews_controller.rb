@@ -5,7 +5,7 @@ class ReviewsController < ApplicationController
             redirect_to strains_path, alert: "Strain not found."
           else
             @review = Review.new(strain_id: params[:strain_id], user_id: session[:user_id])
-          end
+        end
     end
 
     def create

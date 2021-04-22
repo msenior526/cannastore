@@ -50,6 +50,10 @@ class StrainsController < ApplicationController
     def most_reviewed
         @strain = Strain.most_reviews.first
     end
+    
+    def alpha
+        @strains = Strain.alphabetized_by_name
+    end
 
     private
 

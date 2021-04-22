@@ -15,6 +15,8 @@ Rails.application.routes.draw do
   post '/logout', to: 'sessions#destroy'
 
   get '/strains/most_reviewed', to: 'strains#most_reviewed'
+
+  get '/strains/alphabetized_by_name', to: 'strains#alpha'
   
   resources :strains do 
     resources :reviews
