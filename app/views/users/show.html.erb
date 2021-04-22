@@ -1,14 +1,14 @@
 
-     <%= image_tag @user.display_profile_picture if @user.profile_picture.attached? %>
+     <%= image_tag current_user.display_profile_picture if current_user.profile_picture.attached? %>
 
 
-<h1>WELCOME <%= @user.username %></h1>
+<h1>WELCOME <%= current_user.username %></h1>
 
-<%= @user.email %></br>
+<%= current_user.email %></br>
 
 <%= button_to "Logout", logout_path %>
-<%= button_to "Delete Account", user_path(@user), method: :delete %> 
-<%= link_to "Edit Account", edit_user_path(@user)%> 
+<%= button_to "Delete Account", user_path(current_user), method: :delete %> 
+<%= link_to "Edit Account", edit_user_path(current_user)%> 
 
 <h3><%= link_to "Your Favorites", user_favorites_path(current_user) %></h3>
 </br>
