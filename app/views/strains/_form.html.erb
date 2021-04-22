@@ -1,17 +1,47 @@
 <%= render partial: 'layouts/error', locals: {object: @strain} %>
 
-<%= form_for(@strain) do |f| %>
-    
-    <%= f.collection_select :category_id, Category.all, :id, :name %>
-    
-    <%= f.label :name %>
-    <%= f.text_field :name %>
+<div class="card text-center">
+    <div class="card-body">
 
-    <%= f.label :thc_content %>
-    <%= f.number_field :thc_content %>
+    <%= form_for(@strain) do |f| %>
+        
+        <div class="mb-3">
+            <div class="form-label">
+                <%= f.label :name %>
+            </div>
+            <div class="form-text">
+                <%= f.text_field :name %>
+            </div>
+        </div>
+        
+        <div class="mb-3">
+            <div class="form-label">
+                <%= f.label :category %>
+            </div>
+            <div class="form-text">
+                <%= f.collection_select :category_id, Category.all, :id, :name %>
+            </div>
+        </div>
+  
+        <div class="mb-3">
+            <div class="form-label">
+                <%= f.label :thc_content %>
+            </div>
+            <div class="form-text">
+                <%= f.number_field :thc_content %>
+            </div>
+        </div>
 
-    <%= f.label :description %>
-    <%= f.text_area :description %>
+        <div class="mb-3">
+            <div class="form-label">
+                <%= f.label :description %>
+                </div>
+            <div class="form-text">
+                <%= f.text_area :description %>
+            </div>
+        </div>
 
-    <%= f.submit %>
-<% end %>
+        <%= f.submit %>
+    <% end %>
+    </div>
+</div>
