@@ -35,8 +35,6 @@ class ReviewsController < ApplicationController
                 @review = @strain.reviews.find_by(id: params[:id]).destroy
                 redirect_back fallback_location: current_user, notice: "You have successfully deleted your review!"
             end
-        else
-            @review = Review.find_by(id: params[:id]).destroy
         end
     end
 
