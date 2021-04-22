@@ -20,11 +20,6 @@ class Strain < ApplicationRecord
     end
   end
 
-  def name_without_whtespaces_and_capitalized
-    n = name.strip.split.collect {|word| word.to_s.capitalize}
-    n.join(" ")
-  end
-
   def average_rating
     if reviews.empty?
       n = "No reviews"
