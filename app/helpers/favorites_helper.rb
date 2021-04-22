@@ -13,8 +13,4 @@ module FavoritesHelper
             render partial: 'favorites/form'
         end 
     end
-
-    def display_favorites(favorites)
-            render partial: 'strains/strain', collection: favorites
-    end
 end
