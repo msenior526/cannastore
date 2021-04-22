@@ -7,10 +7,7 @@ class Strain < ApplicationRecord
 
   validates :name, presence: true, uniqueness: true
   scope :most_reviews, ->{ order(reviews_count: :desc) }
-
-  def self.by_thc_content
-    self.order(thc_content: :desc)
-  end
+  scope :by_thc_content, ->{ order(thc_content: :desc) }
 
   def self.search_by_name(search)
     if search
